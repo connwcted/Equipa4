@@ -18,6 +18,7 @@ public class ProdutoService
 			em.persist( p);
 		}
 		p.setId(id);
+		p.setNome(nome);
 		p.setDescricao(descricao);
 		p.setGrupo(grupo);
 		p.setIngredientes(ingredientes);

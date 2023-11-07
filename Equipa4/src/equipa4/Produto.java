@@ -99,10 +99,14 @@ public class Produto
 	{
 		return nome;
 	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+		}
 	@Override
 	public String toString() 
 	{
-		return "Produtos [id" +id +"nome=" + nome + ", descricao=" + descricao + ", grupo=" + grupo + ", ingredientes=" + ingredientes 
+		return "Produtos [id" +id +", nome=" + nome + ", descricao=" + descricao + ", grupo=" + grupo + ", ingredientes=" + ingredientes 
 				+ ", infNutricional=" + infNutricional + ", alergenios=" + alergenios + ", preco=" + preco + "]";
 	}
 }
