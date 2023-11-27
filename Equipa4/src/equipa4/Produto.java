@@ -99,7 +99,7 @@ public class Produto
 	{
 		return nome;
 	}
-	
+	/** @param nome the nome to set*/
 	public void setNome(String nome) {
 		this.nome = nome;
 		}
