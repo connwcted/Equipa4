@@ -21,8 +21,7 @@ public class Produto
 	private String infNutricional;
 	private String alergenios;
 	private float preco;
-//	@OneToMany(cascade= {CascadeType.ALL},fetch=FetchType.LAZY)
-//	List<Produto> produto = new ArrayList<Produto>();
+
 	public Produto() 
 	{
 	}
