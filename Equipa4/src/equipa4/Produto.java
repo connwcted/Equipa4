@@ -21,8 +21,8 @@ public class Produto
 	private String infNutricional;
 	private String alergenios;
 	private float preco;
-	@OneToMany(cascade= {CascadeType.ALL},fetch=FetchType.LAZY)
-	List<Produto> produto = new ArrayList<Produto>();
+//	@OneToMany(cascade= {CascadeType.ALL},fetch=FetchType.LAZY)
+//	List<Produto> produto = new ArrayList<Produto>();
 	public Produto() 
 	{
 	}
@@ -33,6 +33,16 @@ public class Produto
 	public void setId(int id) 
 	{
 		this.id= id;
+	}
+	/** @return the nome */
+	public String getNome() 
+	{
+		return nome;
+	}
+	/** @param nome the nome to set */
+	public void setNome(String nome) 
+	{
+		this.nome = nome;
 	}
 	/** @return the descricao */
 	public String getDescricao() 
@@ -94,19 +104,12 @@ public class Produto
 	{
 		this.preco = preco;
 	}
-	/** @return the nome */
-	public String getNome() 
-	{
-		return nome;
-	}
-	/** @param nome the nome to set*/
-	public void setNome(String nome) {
-		this.nome = nome;
-		}
 	@Override
 	public String toString() 
 	{
-		return "Produtos [id" +id +", nome=" + nome + ", descricao=" + descricao + ", grupo=" + grupo + ", ingredientes=" + ingredientes 
-				+ ", infNutricional=" + infNutricional + ", alergenios=" + alergenios + ", preco=" + preco + "]";
+		return "\nProduto " + id 
+			+  " [ Nome: " + nome + "; Descricao: " + descricao + "; Grupo: " + grupo + ";\n"
+			+  "          [ Ingredientes: " + ingredientes + "; Informação Nutricional: " + infNutricional + "; Alergénios: " + alergenios + ";\n"
+			+  "          [ Preço: " + preco + "€";
 	}
 }
