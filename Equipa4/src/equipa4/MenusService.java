@@ -63,7 +63,7 @@ protected EntityManager em;
 	
 	@SuppressWarnings("unchecked")
 	public List<Menus> findAllMenus(){
-		Query qd = em.createQuery("Select t from Turma t");
+		Query qd = em.createQuery("Select m from Menus m");
 		return qd.getResultList();
 	}
 }
