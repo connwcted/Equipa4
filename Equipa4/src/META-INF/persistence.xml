@@ -4,9 +4,14 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence  http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
     version="2.0" 
     xmlns="http://java.sun.com/xml/ns/persistence">
+	
 	<persistence-unit name="LibraryHamburger" transaction-type="RESOURCE_LOCAL">
+        
         <class>equipa4.Produto</class>
+        <class>equipa4.Menus</class>
+        
         <properties>
+        
         <property name="eclipselink.target-database" value="Derby" />
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:derby:C:\Users\Gabz\Desktop\Equipa4_Teste\Teste;create=true" />
