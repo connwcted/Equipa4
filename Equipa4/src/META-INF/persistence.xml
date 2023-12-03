@@ -4,19 +4,16 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/persistence  http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
     version="2.0" 
     xmlns="http://java.sun.com/xml/ns/persistence">
-	
 	<persistence-unit name="LibraryHamburger" transaction-type="RESOURCE_LOCAL">
-        
         <class>equipa4.Administrador</class>
         <class>equipa4.Cliente</class>
         <class>equipa4.Menus</class>
         <class>equipa4.Produto</class>
-        
-        <properties>
-        
-        <property name="eclipselink.target-database" value="Derby" />
+        <class>equipa4.Desconto</class>
+        <properties>        
+        	<property name="eclipselink.target-database" value="Derby" />
             <property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:derby:C:\Users\Gabz\Desktop\Equipa4_Teste\Teste;create=true" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:derby:D:\vaiTeFuderTiago\Teste;create=true" />
             <!-- EclipseLink should create the database schema automatically -->
             <property name="eclipselink.ddl-generation" value="create-tables" />
             <property name="eclipselink.ddl-generation.output-mode" value="database" />

@@ -1,5 +1,4 @@
 package equipa4;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -8,53 +7,53 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 @Entity
-public class Administrador {
+public class Administrador 
+{
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
 	private String nome;
 	private String email;
 	private String senha;
-
-	public Administrador() {
+	public Administrador() 
+	{
 	}
-
-	public int getId() {
+	public int getId() 
+	{
 		return id;
 	}
-
-	public void setId(int id) {
+	public void setId(int id) 
+	{
 		this.id = id;
 	}
-
-	public String getNome() {
+	public String getNome() 
+	{
 		return nome;
 	}
-
-	public void setNome(String nome) {
+	public void setNome(String nome) 
+	{
 		this.nome = nome;
 	}
-
-	public String getEmail() {
+	public String getEmail() 
+	{
 		return email;
 	}
-
-	public void setEmail(String email) {
+	public void setEmail(String email)
+	{
 		this.email = email;
 	}
-
-	public String getSenha() {
+	public String getSenha() 
+	{
 		return senha;
 	}
-
-	public void setSenha(String senha) {
+	public void setSenha(String senha) 
+	{
 		this.senha = senha;
 	}
-
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		String x = "\nAdministrador [ Nome: " + nome + "; Email: " + email + " ]";
 		return x;
 	}

@@ -1,5 +1,4 @@
 package equipa4;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -9,9 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-
 @Entity
-public class Produto {
+public class Produto 
+{
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	private int id;
@@ -22,90 +21,90 @@ public class Produto {
 	private int infNutricional;
 	private String alergenios;
 	private float preco;
-
-	public Produto() {
+	public Produto() 
+	{
 	}
-
-	public int getId() {
+	public int getId() 
+	{
 		return id;
 	}
-
-	public void setId(int id) {
+	public void setId(int id) 
+	{
 		this.id = id;
 	}
-
 	/** @return the nome */
-	public String getNome() {
+	public String getNome() 
+	{
 		return nome;
 	}
-
 	/** @param nome the nome to set */
-	public void setNome(String nome) {
+	public void setNome(String nome) 
+	{
 		this.nome = nome;
 	}
-
 	/** @return the descricao */
-	public String getDescricao() {
+	public String getDescricao() 
+	{
 		return descricao;
 	}
-
 	/** @param descricao the descricao to set */
-	public void setDescricao(String descricao) {
+	public void setDescricao(String descricao) 
+	{
 		this.descricao = descricao;
 	}
-
 	/** @return the grupo */
-	public String getGrupo() {
+	public String getGrupo() 
+	{
 		return grupo;
 	}
-
 	/** @param grupo the grupo to set */
-	public void setGrupo(String grupo) {
+	public void setGrupo(String grupo) 
+	{
 		this.grupo = grupo;
 	}
-
 	/** @return the ingredientes */
-	public String getIngredientes() {
+	public String getIngredientes() 
+	{
 		return ingredientes;
 	}
-
 	/** @param ingredientes the ingredientes to set */
-	public void setIngredientes(String ingredientes) {
+	public void setIngredientes(String ingredientes) 
+	{
 		this.ingredientes = ingredientes;
 	}
-
 	/** @return the infNutricional */
-	public int getInfNutricional() {
+	public int getInfNutricional() 
+	{
 		return infNutricional;
 	}
-
 	/** @param infNutricional the infNutricional to set */
-	public void setInfNutricional(int infNutricional) {
+	public void setInfNutricional(int infNutricional) 
+	{
 		this.infNutricional = infNutricional;
 	}
-
 	/** @return the alergenios */
-	public String getAlergenios() {
+	public String getAlergenios() 
+	{
 		return alergenios;
 	}
-
 	/** @param alergenios the alergenios to set */
-	public void setAlergenios(String alergenios) {
+	public void setAlergenios(String alergenios) 
+	{
 		this.alergenios = alergenios;
 	}
-
 	/** @return the preco */
-	public float getPreco() {
+	public float getPreco() 
+	{
 		return preco;
 	}
-
 	/** @param preco the preco to set */
-	public void setPreco(float preco) {
+	public void setPreco(float preco) 
+	{
 		this.preco = preco;
 	}
-
 	@Override
-	public String toString() {
+	public String toString() 
+	{
 		return "\nProduto " + id + " [ Nome: " + nome + "; Descricao: " + descricao + "; Grupo: " + grupo + ";\n"
 				+ "          [ Ingredientes: " + ingredientes + "; Informacao Nutricional: " + infNutricional
 				+ " kCal; Alergenios: " + alergenios + ";\n" + "          [ Preço: " + preco + "€ ]";
