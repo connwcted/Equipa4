@@ -112,7 +112,12 @@ public class Main
 		Encomenda e3 = es.updateEncomenda(0, encPreco);
 		e3.getDescontos().add(d1);
 		e3.getDescontos().add(d2);
+		e3.getProdutos().add(p3);
+		e3.getProdutos().add(p4);
 		
+		c1.getEncomendas().add(e1);
+		c2.getEncomendas().add(e2);
+		c2.getEncomendas().add(e3);
 		
 		em.getTransaction().commit();
 

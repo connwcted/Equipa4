@@ -16,6 +16,7 @@ public class Cliente
 	private String nome;
 	private String email;
 	private String senha;
+	List<Encomenda> encomendas = new ArrayList<Encomenda>();
 	public Cliente() 
 	{
 	}
@@ -51,10 +52,19 @@ public class Cliente
 	{
 		this.senha = senha;
 	}
+	public List<Encomenda> getEncomendas() 
+    {
+        return encomendas;
+    }
 	@Override
-	public String toString() 
-	{
-		String x = "\nCliente " + id + " [ Nome: " + nome + "; Email: " + email + " ]";
-		return x;
-	}
+    public String toString() 
+    {
+        String x = "\nCliente " + id + " [ Nome: " + nome + "; Email: " + email + " ]"
+        		+ "\nTodas as encomendas:\n";
+        for (Encomenda e : encomendas) 
+        {
+            x += e.toString();
+        }
+        return x;
+    }
 }

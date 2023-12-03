@@ -66,9 +66,17 @@ public class Encomenda
 			x += "       Menu " + m.getIdM() + " [ Nome: " + m.getNomeM() + ";\n" 
 		       + "              [ Preco:" + String.format("%.2f", m.getPrecoM()) + " ]\n";
 		}
-		for (Desconto e : descontos) 
+		for (Desconto d : descontos) 
 		{
-			x += e.toString();
+			x += "       Desconto: " + String.format("%.0f", d.getDesconto()) + "%";
+			x += "\n       Produtos:\n";
+			for (Produto p : produtos) 
+			{
+			    float pDesconto = p.getPreco()*(1-(d.getDesconto()/100));
+			    String formattedPrice = String.format("%.2f", pDesconto);
+			    x += "              Produto " + p.getId() + " [ Nome: " + p.getNome() + ";\n" 
+			       + "                        [ Preco: " + formattedPrice + "€ ]\n";
+			}
 		}
 		return x;
 	}
