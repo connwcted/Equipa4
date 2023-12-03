@@ -7,6 +7,7 @@
 	
 	<persistence-unit name="LibraryHamburger" transaction-type="RESOURCE_LOCAL">
         
+        <class>equipa4.Administrador</class>
         <class>equipa4.Cliente</class>
         <class>equipa4.Menus</class>
         <class>equipa4.Produto</class>
