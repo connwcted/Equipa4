@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 @Entity
-public class Menus 
+public class Menu 
 {
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
@@ -23,7 +23,7 @@ public class Menus
 	private float precoM;
 	@OneToMany(cascade= {CascadeType.ALL},fetch=FetchType.LAZY)
 	List<Produto> produtos = new ArrayList<Produto>();
-	public Menus() 
+	public Menu() 
 	{
 	}
 	public int getIdM() 
@@ -103,7 +103,7 @@ public class Menus
 		     x += "       Produtos incluidos no menu:\n\n";
 		for (Produto p : produtos) 
 		{
-			x += "       Produto " + p.getId() + " [ Nome: " + p.getNome() + ";\n" 
+			x += "       Produto " + p.getId() + " [ Nome: " + p.getNome() + "; Informacao Nutricional: " + p.getInfNutricional() + " kCal;\n" 
 		       + "                 [ Ingredientes: " + p.getIngredientes() + " ]\n";
 		}
 		return x;

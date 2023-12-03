@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Equipa4/src"/>
+	<classpathentry kind="lib" path="Equipa4/Lib/derby.jar"/>
+	<classpathentry kind="lib" path="Equipa4/Lib/derbyshared.jar"/>
+	<classpathentry kind="lib" path="Equipa4/Lib/derbytools.jar"/>
+	<classpathentry kind="lib" path="Equipa4/Lib/eclipselink.jar"/>
+	<classpathentry kind="lib" path="Equipa4/Lib/jakarta.persistence_2.2.3.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

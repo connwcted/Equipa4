@@ -10,7 +10,6 @@ public class Main
 	private static final String PERSISTENCE_UNIT_NAME = "LibraryHamburger";
 	private static EntityManagerFactory factory;
 	private static EntityManager emanager = null;
-
 	public static void fill() 
 	{
 		System.out.println("========");
@@ -19,10 +18,11 @@ public class Main
 		EntityManager em = getEM();
 		Query q = null;
 		List<Produto> produtos = null;
-		List<Menus> menus = null;
+		List<Menu> menus = null;
 		List<Cliente> clientes = null;
 		List<Administrador> administradores = null;
 		List<Desconto> descontos = null;
+		List<Encomenda> encomendas = null;
 
 		em.getTransaction().begin();
 
@@ -47,11 +47,11 @@ public class Main
 			ps.removeProduto(p.getId());
 		}
 
-		MenusService ms = new MenusService(getEM());
-		List<Menus> menusList = ms.findAllMenus();
-		for (Menus m : menusList) 
+		MenuService ms = new MenuService(getEM());
+		List<Menu> menuList = ms.findAllMenus();
+		for (Menu m : menuList) 
 		{
-			ms.removeMenus(m.getIdM());
+			ms.removeMenu(m.getIdM());
 		}
 		
 		DescontoService ds = new DescontoService(getEM());
@@ -59,6 +59,13 @@ public class Main
 		for (Desconto d : descontosList) 
 		{
 			ds.removeDesconto(d.getDesconto());
+		}
+		
+		EncomendaService es = new EncomendaService(getEM());
+		List<Encomenda> encomendaList = es.findAllEncomendas();
+		for (Encomenda e : encomendaList) 
+		{
+			es.removeEncomenda(e.getNumEnc());
 		}
 
 		em.getTransaction().commit();
@@ -82,17 +89,29 @@ public class Main
 		Produto p6 = ps.updateProduto(0, "Refrigerante Caseiro", "Bebida gaseificada caseira e refrescante", "Bebida", "Agua com gas, Suco de limao, Açúcar", 150, "Nenhum", 3.99f);
 
 		int menuKCal = p1.getInfNutricional() + p4.getInfNutricional();
-		Menus m1 = ms.updateMenus(1, "Menu Vegano", "Menu delicioso e saudavel para veganos", "Menu", menuKCal, "Nenhum", 7.99f);
-
+		Menu m1 = ms.updateMenu(0, "Menu Vegano", "Menu delicioso e saudavel para veganos", "Menu", menuKCal, "Nenhum", 7.99f);
 		m1.getProdutos().add(p1);
 		m1.getProdutos().add(p4);
 		
 		Desconto d1 = ds.updateDesconto(20f);
 		Desconto d2 = ds.updateDesconto(10f);
-		
 		d1.getProdutos().add(p2);
 		d1.getProdutos().add(p3);
 		d2.getProdutos().add(p4);
+		
+		float encPreco = m1.getPrecoM();
+		Encomenda e1 = es.updateEncomenda(0, encPreco);
+		e1.getMenus().add(m1);
+		
+		encPreco = m1.getPrecoM() + p6.getPreco();
+		Encomenda e2 = es.updateEncomenda(0, encPreco);
+		e2.getMenus().add(m1);
+		e2.getProdutos().add(p6);
+		
+		encPreco = 0;
+		Encomenda e3 = es.updateEncomenda(0, encPreco);
+		e3.getDescontos().add(d1);
+		e3.getDescontos().add(d2);
 		
 		
 		em.getTransaction().commit();
@@ -118,7 +137,7 @@ public class Main
 		menus = ms.findAllMenus();
 		System.out.println("\n\n\n*------------------------------------------------------*");
 		System.out.println("                   LISTA DE MENUS                   ");
-		for (Menus ma : menus) 
+		for (Menu ma : menus) 
 		{
 			System.out.println(ma);
 		}
@@ -162,11 +181,20 @@ public class Main
 		System.out.println("\n*------------------------------------------------------*");
 		
 		descontos = ds.findAllDescontos();
-		System.out.println("*------------------------------------------------------*");
+		System.out.println("\n\n\n*------------------------------------------------------*");
 		System.out.println("                  PRODUTOS COM DESCONTO                ");
 		for (Desconto da : descontos) 
 		{
 			System.out.println(da);
+		}
+		System.out.println("\n*------------------------------------------------------*");
+		
+		encomendas = es.findAllEncomendas();
+		System.out.println("\n\n\n*------------------------------------------------------*");
+		System.out.println("                   TODAS AS ENCOMENDAS                  ");
+		for (Encomenda ea : encomendas) 
+		{
+			System.out.println(ea);
 		}
 		System.out.println("\n*------------------------------------------------------*");
 		System.out.println("\n\nAcabou!");

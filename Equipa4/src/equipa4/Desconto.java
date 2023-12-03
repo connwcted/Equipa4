@@ -41,7 +41,7 @@ public class Desconto
 		    float pDesconto = p.getPreco()*(1-(desconto/100));
 		    String formattedPrice = String.format("%.2f", pDesconto);
 		    x += "          Produto " + p.getId() + " [ Nome: " + p.getNome() + ";\n" 
-		       + "                    [ Preco: " + formattedPrice + " ]\n";
+		       + "                    [ Preco: " + formattedPrice + "€ ]\n";
 		}
 		return x;
 	}

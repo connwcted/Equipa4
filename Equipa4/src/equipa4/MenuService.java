@@ -2,19 +2,19 @@ package equipa4;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
-public class MenusService 
+public class MenuService 
 {
 	protected EntityManager em;
-	public MenusService(EntityManager em) 
+	public MenuService(EntityManager em) 
 	{
 		this.em = em;
 	}
-	public Menus updateMenus(int idM, String nomeM, String descricaoM, String grupoM, int infNM, String alergenicosM, float precoM)
+	public Menu updateMenu(int idM, String nomeM, String descricaoM, String grupoM, int infNM, String alergenicosM, float precoM)
 	{
-		Menus m = em.find(Menus.class, idM);
+		Menu m = em.find(Menu.class, idM);
 		if (m == null) 
 		{
-			m = new Menus();
+			m = new Menu();
 			em.persist(m);
 		}
 		m.setIdM(idM);
@@ -27,13 +27,13 @@ public class MenusService
 		m.getProdutos().clear();
 		return m;
 	}
-	public Menus findMenus(int idM) 
+	public Menu findMenu(int idM) 
 	{
-		return em.find(Menus.class, idM);
+		return em.find(Menu.class, idM);
 	}
-	public void removeMenus(int idM) 
+	public void removeMenu(int idM) 
 	{
-		Menus m = findMenus(idM);
+		Menu m = findMenu(idM);
 		if (m != null)
 		{
 			em.remove(m);
@@ -41,9 +41,9 @@ public class MenusService
 		return;
 	}
 	@SuppressWarnings("unchecked")
-	public List<Menus> findAllMenus() 
+	public List<Menu> findAllMenus() 
 	{
-		Query qd = em.createQuery("Select m from Menus m");
+		Query qd = em.createQuery("Select m from Menu m");
 		return qd.getResultList();
 	}
 }
