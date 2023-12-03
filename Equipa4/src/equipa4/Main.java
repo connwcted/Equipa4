@@ -57,36 +57,36 @@ public class Main {
 
 		em.getTransaction().begin();
 
-		Administrador a1 = as.updateAdministrador(1, "Admin", "admin@gmail.com", "Admin123!");
+		Administrador a1 = as.updateAdministrador(0, "Admin", "admin@gmail.com", "Admin123!");
 
-		Cliente c1 = cs.updateCliente(1, "Andre", "andre123@gmail.com", "Andre123");
-		Cliente c2 = cs.updateCliente(2, "Carlos", "carlitos123@gmail.com", "Joaquim123");
+		Cliente c1 = cs.updateCliente(0, "Andre", "andre123@gmail.com", "Andre123");
+		Cliente c2 = cs.updateCliente(0, "Carlos", "carlitos123@gmail.com", "Joaquim123");
 
-		Produto p1 = ps.updateProduto(1, "Hamburguer Vegano", "Hamburguer vegano delicioso e facil de fazer", "Comida",
+		Produto p1 = ps.updateProduto(0, "Hamburguer Vegano", "Hamburguer vegano delicioso e facil de fazer", "Comida",
 				"Grao-de-bico, Cebola, Alho, Farinha de trigo, Pimenta-do-reino, Sal, Salsinha, Azeite", 200, "Nenhum",
 				5.99f);
-		Produto p2 = ps.updateProduto(2, "Lasanha a Bolonhesa", "Lasanha classica italiana", "Comida",
+		Produto p2 = ps.updateProduto(0, "Lasanha a Bolonhesa", "Lasanha classica italiana", "Comida",
 				"Massa de lasanha, Molho de tomate, Carne moida, Queijo mussarela, Queijo parmesao, Cebola, Alho, Azeite, Sal, Pimenta-do-reino",
 				350, "Nenhum", 14.99f);
-		Produto p3 = ps.updateProduto(3, "Pizza Margherita", "Pizza classica italiana", "Comida",
+		Produto p3 = ps.updateProduto(0, "Pizza Margherita", "Pizza classica italiana", "Comida",
 				"Massa de pizza, Molho de tomate, Mussarela, Manjericao", 250, "Nenhum", 9.99f);
-		Produto p4 = ps.updateProduto(4, "Batatas Fritas", "Deliciosas batatas fritas crocantes", "Comida",
+		Produto p4 = ps.updateProduto(0, "Batatas Fritas", "Deliciosas batatas fritas crocantes", "Comida",
 				"Batatas, Oleo, Sal", 312, "Nenhum", 2.99f);
-		Produto p5 = ps.updateProduto(5, "Arroz Branco", "Arroz branco soltinho e delicioso", "Comida",
+		Produto p5 = ps.updateProduto(0, "Arroz Branco", "Arroz branco soltinho e delicioso", "Comida",
 				"Arroz, Agua, Sal", 300, "Nenhum", 1.99f);
-		Produto p6 = ps.updateProduto(6, "Refrigerante Caseiro", "Bebida gaseificada caseira e refrescante", "Bebida",
+		Produto p6 = ps.updateProduto(0, "Refrigerante Caseiro", "Bebida gaseificada caseira e refrescante", "Bebida",
 				"Agua com gas, Suco de limao, Açúcar", 150, "Nenhum", 3.99f);
 
-		List<Produto> produtosDoMenu = new ArrayList<>();
 		int menuKCal = p1.getInfNutricional()+p4.getInfNutricional();
-		produtosDoMenu.add(p1);
-		produtosDoMenu.add(p4);
 		Menus m1 = ms.updateMenus(1, "Menu Vegano", "Menu delicioso e saudavel para veganos", "Menu", menuKCal,
-				"Nenhum", 7.99f, produtosDoMenu);
+				"Nenhum", 7.99f);
 		// Menus m2 = ms.updateMenus(2,"Lasanha", "A lasanha é um prato italiano
 		// delicioso e reconfortante", "Comida", "400 kCal", "Gluten, Lactose", 15.99f,
 		// );
 
+		m1.getProdutos().add(p1);
+		m1.getProdutos().add(p4);
+		
 		em.getTransaction().commit();
 
 		administradores = as.findAllAdministradores();

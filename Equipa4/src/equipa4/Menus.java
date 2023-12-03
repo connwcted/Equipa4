@@ -8,9 +8,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.JoinTable;
-import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Menus {
@@ -24,11 +22,8 @@ public class Menus {
 	private int infNM;
 	private String alergenicosM;
 	private float precoM;
-	@ManyToMany(cascade = { CascadeType.ALL })
-	@JoinTable(name = "Menus_Produtos", joinColumns = { @JoinColumn(name = "menu_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "produto_id") })
+	@OneToMany(cascade= {CascadeType.ALL},fetch=FetchType.LAZY)
 	List<Produto> produtos = new ArrayList<Produto>();
-
 	public Menus() {
 	}
 
