@@ -82,7 +82,7 @@ public class Menus {
 	}
 
 	public void setAlergenicosM(String alergenicosM) {
-		alergenicosM = alergenicosM;
+		this.alergenicosM = alergenicosM;
 	}
 
 	public float getPrecoM() {
