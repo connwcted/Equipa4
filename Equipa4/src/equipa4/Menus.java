@@ -8,7 +8,9 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Menus {
@@ -23,8 +25,13 @@ public class Menus {
 	private String alergenicosM;
 	private float precoM;
 	
-	@OneToMany(cascade= {CascadeType.ALL},fetch=FetchType.LAZY)
-	List<Produto> produtos = new ArrayList<Produto>();
+	  @ManyToMany(cascade = { CascadeType.ALL })
+	    @JoinTable(
+	        name = "Menus_Produtos",
+	        joinColumns = { @JoinColumn(name = "menu_id") },
+	        inverseJoinColumns = { @JoinColumn(name = "produto_id") }
+	    )
+	    List<Produto> produtos = new ArrayList<Produto>();
 	
 	public Menus() {
 	}
@@ -99,12 +106,12 @@ public class Menus {
 	@Override
 	public String toString() 
 	{
-		String x = "\nProduto " + idM 
+		String x = "\nMenu " + idM 
 			+  " [ Nome: " + nomeM + "; Descricao: " + descricaoM + "; Grupo: " + grupoM + ";\n"
 			+  "          [ Ingredientes: " + ingredientesM + "; Informação Nutricional: " + infNM + "; Alergénios: " + alergenicosM + ";\n"
-			+  "          [ Preço: " + precoM + "€";
+			+  "          [ Preço: " + precoM + "€ ]";
 		for(Produto p: produtos) {
-			x += "Produtos [produto=" + p.getNome()+ "] \n";
+			x += "\nProduto [produto=" + p.getNome()+ " ]";
 		}
 		return x;
 	}

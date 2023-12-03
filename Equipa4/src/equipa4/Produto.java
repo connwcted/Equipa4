@@ -7,7 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 @Entity
 public class Produto 
 {
@@ -22,6 +22,9 @@ public class Produto
 	private String alergenios;
 	private float preco;
 
+	@ManyToMany(mappedBy = "produtos")
+    private List<Menus> menus = new ArrayList<Menus>();
+	
 	public Produto() 
 	{
 	}
@@ -109,6 +112,6 @@ public class Produto
 		return "\nProduto " + id 
 			+  " [ Nome: " + nome + "; Descricao: " + descricao + "; Grupo: " + grupo + ";\n"
 			+  "          [ Ingredientes: " + ingredientes + "; Informação Nutricional: " + infNutricional + "; Alergénios: " + alergenios + ";\n"
-			+  "          [ Preço: " + preco + "€";
+			+  "          [ Preço: " + preco + "€ ]";
 	}
 }
