@@ -21,18 +21,14 @@ public class Menus {
 	private String descricaoM;
 	private String grupoM;
 	private String ingredientesM;
-	private String infNM;
+	private int infNM;
 	private String alergenicosM;
 	private float precoM;
-	
-	  @ManyToMany(cascade = { CascadeType.ALL })
-	    @JoinTable(
-	        name = "Menus_Produtos",
-	        joinColumns = { @JoinColumn(name = "menu_id") },
-	        inverseJoinColumns = { @JoinColumn(name = "produto_id") }
-	    )
-	    List<Produto> produtos = new ArrayList<Produto>();
-	
+	@ManyToMany(cascade = { CascadeType.ALL })
+	@JoinTable(name = "Menus_Produtos", joinColumns = { @JoinColumn(name = "menu_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "produto_id") })
+	List<Produto> produtos = new ArrayList<Produto>();
+
 	public Menus() {
 	}
 
@@ -76,15 +72,15 @@ public class Menus {
 		this.ingredientesM = ingredientesM;
 	}
 
-	public String getInfNM() {
+	public int getInfNM() {
 		return infNM;
 	}
 
-	public void setInfNM(String infNM) {
+	public void setInfNM(int infNM) {
 		this.infNM = infNM;
 	}
 
-	public String getAlergênicosM() {
+	public String getAlergenicosM() {
 		return alergenicosM;
 	}
 
@@ -99,22 +95,22 @@ public class Menus {
 	public void setPrecoM(float precoM) {
 		this.precoM = precoM;
 	}
-	
-	public List<Produto> getProdutos(){
+
+	public List<Produto> getProdutos() {
 		return produtos;
 	}
+
 	@Override
-	public String toString() 
-	{
-		String x = "\nMenu " + idM 
-			+  " [ Nome: " + nomeM + "; Descricao: " + descricaoM + "; Grupo: " + grupoM + ";\n"
-			+  "          [ Ingredientes: " + ingredientesM + "; Informação Nutricional: " + infNM + "; Alergénios: " + alergenicosM + ";\n"
-			+  "          [ Preço: " + precoM + "€ ]";
-		for(Produto p: produtos) {
-			x += "\nProduto [produto=" + p.getNome()+ " ]";
+	public String toString() {
+		String x = "\nMenu " + idM + " [ Nome: " + nomeM + "; Descricao: " + descricaoM + "; Grupo: " + grupoM + ";\n"
+				+ "       [ Informacao Nutricional: " + infNM + " kCal; Alergenios: " + alergenicosM + ";\n"
+				+ "       [ Preço: " + precoM + "€ ]\n\n";
+		x += "       Produtos incluidos no menu:\n\n";
+		for (Produto p : produtos) {
+			x += "       Produto " + p.getId() + " [ Nome: " + p.getNome() + ";\n" + "                 [ Ingredientes: "
+					+ p.getIngredientes() + " ]\n";
 		}
 		return x;
 	}
-	
-}
 
+}

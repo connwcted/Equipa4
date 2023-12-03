@@ -2,7 +2,6 @@ package equipa4;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,7 +17,7 @@ public class Cliente {
 	private String nome;
 	private String email;
 	private String senha;
-	
+
 	public Cliente() {
 	}
 
@@ -53,10 +52,10 @@ public class Cliente {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
+
 	@Override
 	public String toString() {
-		String x = "Cliente [ nome="+ nome+ ",email="+email+" ]";
+		String x = "\nCliente " + id + " [ Nome: " + nome + "; Email: " + email + " ]";
 		return x;
 	}
 }
