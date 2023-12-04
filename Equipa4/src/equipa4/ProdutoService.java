@@ -28,14 +28,14 @@ public class ProdutoService
 		em.persist(p);
 		return p;
 	}
-	public void removeProduto(int id) 
+	public Produto removeProduto(int id) 
 	{
 		Produto p = findProduto(id);
 		if (p != null)
 		{
 			em.remove(p);
 		}
-		return;
+		return p;
 	}
 	public Produto findProduto(int id) 
 	{
