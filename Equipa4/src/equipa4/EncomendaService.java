@@ -26,14 +26,14 @@ public class EncomendaService
 	{
 		return em.find(Encomenda.class, numEnc);
 	}
-	public void removeEncomenda(int numEnc) 
+	public boolean removeEncomenda(int numEnc) 
 	{
 		Encomenda m = findEncomenda(numEnc);
 		if (m != null)
 		{
 			em.remove(m);
 		}
-		return;
+		return false;
 	}
 	@SuppressWarnings("unchecked")
 	public List<Encomenda> findAllEncomendas() 

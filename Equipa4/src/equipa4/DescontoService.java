@@ -25,12 +25,12 @@ public class DescontoService
 	{
 		return em.find(Desconto.class, desconto);
 	}
-	public void removeDesconto(float desconto) 
+	public boolean removeDesconto(float desconto) 
 	{
 		Desconto r = findDesconto(desconto);
 		if (r != null)
 			em.remove(r);
-		return;
+		return false;
 	}
 	@SuppressWarnings("unchecked")
 	public List<Desconto> findAllDescontos() 

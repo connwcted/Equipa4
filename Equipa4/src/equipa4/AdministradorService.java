@@ -28,12 +28,12 @@ public class AdministradorService
 	{
 		return em.find(Administrador.class, id);
 	}
-	public void removeAdministrador(int id) 
+	public boolean removeAdministrador(int id) 
 	{
 		Administrador r = findAdministrador(id);
 		if (r != null)
 			em.remove(r);
-		return;
+		return false;
 	}
 	@SuppressWarnings("unchecked")
 	public List<Administrador> findAllAdministradores() 
