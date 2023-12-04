@@ -28,14 +28,14 @@ public class ClienteService
 	{
 		return em.find(Cliente.class, id);
 	}
-	public void removeCliente(int id) 
+	public Cliente removeCliente(int id) 
 	{
 		Cliente r = findCliente(id);
 		if (r != null) 
 		{
 			em.remove(r);
 		}
-		return;
+		return r;
 	}
 	@SuppressWarnings("unchecked")
 	public List<Cliente> findAllClientes() 
