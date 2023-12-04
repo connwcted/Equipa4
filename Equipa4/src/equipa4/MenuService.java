@@ -31,14 +31,14 @@ public class MenuService
 	{
 		return em.find(Menu.class, idM);
 	}
-	public void removeMenu(int idM) 
+	public Menu removeMenu(int idM) 
 	{
 		Menu m = findMenu(idM);
 		if (m != null)
 		{
 			em.remove(m);
 		}
-		return;
+		return m;
 	}
 	@SuppressWarnings("unchecked")
 	public List<Menu> findAllMenus() 
