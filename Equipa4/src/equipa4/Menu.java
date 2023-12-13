@@ -25,7 +25,21 @@ public class Menu
 	List<Produto> produtos = new ArrayList<Produto>();
 	public Menu() 
 	{
+		
 	}
+	
+	public Menu(int idM, String nomeM, String descricaoM, String grupoM, String ingredientesM, int infNM,
+			String alergenicosM, float precoM) {
+		this.idM = idM;
+		this.nomeM = nomeM;
+		this.descricaoM = descricaoM;
+		this.grupoM = grupoM;
+		this.ingredientesM = ingredientesM;
+		this.infNM = infNM;
+		this.alergenicosM = alergenicosM;
+		this.precoM = precoM;
+	}
+
 	public int getIdM() 
 	{
 		return idM;

@@ -1,14 +1,36 @@
 package equipa4;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 public class AdministradorService 
 {
 	protected EntityManager em;
+	
+	private static final String PERSISTENCE_UNIT_NAME = "LibraryHamburger";
+	private static EntityManagerFactory factory;
+	private static EntityManager emanager = null;
+	
+	public static EntityManager getEM() 
+	{
+		if (emanager == null) 
+		{
+			factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+			emanager = factory.createEntityManager();
+		}
+		return emanager;
+	}
+	
+	public AdministradorService() {
+		this.em = getEM();
+	}
+	
 	public AdministradorService(EntityManager em) 
 	{
 		this.em = em;
 	}
+	
 	public Administrador updateAdministrador(int id, String nome, String email, String senha) 
 	{
 		Administrador a = em.find(Administrador.class, id);
