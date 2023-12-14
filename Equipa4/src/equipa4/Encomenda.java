@@ -22,6 +22,18 @@ public class Encomenda
 	public Encomenda() 
 	{
 	}
+	
+	public Encomenda(int numEnc, float precoEnc, List<Produto> produtos, List<Menu> menus, List<Desconto> descontos) {
+		super();
+		this.numEnc = numEnc;
+		this.precoEnc = precoEnc;
+		this.produtos = produtos;
+		this.menus = menus;
+		this.descontos = descontos;
+	}
+
+
+
 	public int getNumEnc() 
 	{
 		return numEnc;

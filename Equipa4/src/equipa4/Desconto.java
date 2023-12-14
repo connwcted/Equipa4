@@ -19,6 +19,14 @@ public class Desconto
 	public Desconto() 
 	{
 	}
+	
+	public Desconto(float desconto, List<Produto> produtos) {
+		this.desconto = desconto;
+		this.produtos = produtos;
+	}
+
+
+
 	public float getDesconto() 
 	{
 		return desconto;

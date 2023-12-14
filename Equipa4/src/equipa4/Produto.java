@@ -24,6 +24,20 @@ public class Produto
 	public Produto() 
 	{
 	}
+	
+	public Produto(int id, String nome, String descricao, String grupo, String ingredientes, int infNutricional,
+			String alergenios, float preco) {
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.grupo = grupo;
+		this.ingredientes = ingredientes;
+		this.infNutricional = infNutricional;
+		this.alergenios = alergenios;
+		this.preco = preco;
+	}
+
+
 	public int getId() 
 	{
 		return id;

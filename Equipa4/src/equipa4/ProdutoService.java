@@ -1,14 +1,36 @@
 package equipa4;
 import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.Query;
 public class ProdutoService 
 {
 	protected EntityManager em;
+	
+	private static final String PERSISTENCE_UNIT_NAME = "LibraryHamburger";
+	private static EntityManagerFactory factory;
+	private static EntityManager emanager = null;
+	
+	public static EntityManager getEM() 
+	{
+		if (emanager == null) 
+		{
+			factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+			emanager = factory.createEntityManager();
+		}
+		return emanager;
+	}
+	
+	public ProdutoService() {
+		this.em = getEM();
+	}
+	
 	public ProdutoService(EntityManager em) 
 	{
 		this.em = em;
 	}
+	
 	public Produto updateProduto(int id, String nome, String descricao, String grupo, String ingredientes, int infNutricional, String alergenios, float preco) 
 	{
 		Produto p = em.find(Produto.class, id);

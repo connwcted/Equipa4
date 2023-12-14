@@ -27,9 +27,10 @@ public class Menu
 	{
 		
 	}
-	
+
 	public Menu(int idM, String nomeM, String descricaoM, String grupoM, String ingredientesM, int infNM,
-			String alergenicosM, float precoM) {
+			String alergenicosM, float precoM, List<Produto> produtos) {
+		super();
 		this.idM = idM;
 		this.nomeM = nomeM;
 		this.descricaoM = descricaoM;
@@ -38,7 +39,10 @@ public class Menu
 		this.infNM = infNM;
 		this.alergenicosM = alergenicosM;
 		this.precoM = precoM;
+		this.produtos = produtos;
 	}
+
+
 
 	public int getIdM() 
 	{
