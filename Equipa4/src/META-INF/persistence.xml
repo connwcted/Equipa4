@@ -5,6 +5,7 @@
     version="2.0" 
     xmlns="http://java.sun.com/xml/ns/persistence">
 	<persistence-unit name="LibraryHamburger" transaction-type="RESOURCE_LOCAL">
+	<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>equipa4.Administrador</class>
         <class>equipa4.Cliente</class>
         <class>equipa4.Menu</class>
