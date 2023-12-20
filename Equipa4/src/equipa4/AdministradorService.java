@@ -22,6 +22,18 @@ public class AdministradorService
 		return emanager;
 	}
 	
+	private boolean saveData(Administrador admin) {
+
+        try {
+            em.getTransaction().begin();
+            em.persist(admin);
+            em.getTransaction().commit();
+        } catch (Exception ex) {
+            return false;
+        }
+        return true;
+    }
+	
 	public AdministradorService() {
 		this.em = getEM();
 	}
@@ -31,6 +43,70 @@ public class AdministradorService
 		this.em = em;
 	}
 	
+	public Administrador addAdministrador(int id, String nome, String email, String senha) {
+		   EntityManager em = getEM();
+		   
+		   try {
+			   Administrador a = em.find(Administrador.class, id);
+			   if(a == null) {
+				   a = new Administrador();
+				   a.setId(id);
+			   }
+			   
+			   a.setNome(nome);
+			   a.setEmail(email);
+			   a.setSenha(senha);
+			   
+			   saveData(a);
+			   return a;
+		   }
+		   finally{
+			   em.close();  
+		   }
+	   }
+	
+	public Administrador updateAdministrador(Administrador administrador) {
+		   EntityManager em = getEM();
+		   
+		   try {
+			   Administrador a = em.find(Administrador.class, administrador.getId());
+			   
+			   if(a == null) {
+				   saveData(administrador);
+				   return administrador;
+			   }
+			   a.setId(administrador.getId());
+			   a.setNome(administrador.getNome());
+			   a.setEmail(administrador.getEmail());
+			   a.setSenha(administrador.getSenha());
+			   return a;
+		   }
+		   finally {
+			   em.close();
+		   }
+	   }
+	   
+	   public Administrador updateAdministrador(int id, String nome, String email, String senha) {
+		   Administrador a = em.find(Administrador.class, id);
+		   
+		   if(a == null) {
+			   a = new Administrador(id, nome, email, senha);
+			   
+		   }
+		   
+		   a.setId(id);
+		   a.setNome(nome);
+		   a.setEmail(email);
+		   a.setSenha(senha);
+		   saveData(a);
+		   return(a);
+	   }
+	
+	
+	
+	
+	
+	/**
 	public Administrador updateAdministrador(int id, String nome, String email, String senha) 
 	{
 		Administrador a = em.find(Administrador.class, id);
@@ -45,17 +121,23 @@ public class AdministradorService
 		a.setSenha(senha);
 		em.persist(a);
 		return a;
-	}
+	}*/
+	
 	public Administrador findAdministrador(int id) 
 	{
 		return em.find(Administrador.class, id);
 	}
+	
 	public boolean removeAdministrador(int id) 
 	{
-		Administrador r = findAdministrador(id);
-		if (r != null)
-			em.remove(r);
-		return false;
+		Administrador a = findAdministrador(id);
+		 if(a != null) {
+			 em.getTransaction().begin();
+			 em.remove(a);
+			 em.getTransaction().commit();
+			 return true;
+		 }
+		 return false;
 	}
 	@SuppressWarnings("unchecked")
 	public List<Administrador> findAllAdministradores() 

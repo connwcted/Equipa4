@@ -1,13 +1,10 @@
 ----------------------------------------------------------------
-Thu Dec 14 23:25:47 WET 2023:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046): instance a816c00e-018c-6aa6-8646-000003679aa8 
-on database directory C:\Users\Gabz\Desktop\Equipa4_Teste\Teste with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@4e0e2f2a 
-Loaded from file:/C:/Users/Gabz/Desktop/2023/Equipa4/Equipa4/Lib/derby.jar
+Wed Dec 20 06:32:20 WET 2023D001 : [0] The Apache Software Foundation - Apache Derby - 10.16.1.1 - (1901046), [1] a816c00e-018c-85ec-d545-000002ba4010, [2] C:\Users\Gabz\Desktop\Equipa4_Teste\Teste, [3] jdk.internal.loader.ClassLoaders$AppClassLoader@4dd8dc3, [4] file:/C:/Users/Gabz/Desktop/2023/Equipa4/Equipa4/Lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=19.0.2+7-44
+java.runtime.version=17.0.9+11-LTS-201
 user.dir=C:\Users\Gabz\Desktop\2023\Equipa4\Equipa4
 os.name=Windows 10
 os.arch=amd64
 os.version=10.0
 derby.system.home=null
-Database Class Loader started - derby.database.classpath=''
+C005 : [0] 
